@@ -8,7 +8,7 @@ const mount = () => {
   console.log('Server is running at port 8888');
 };
 
-app.use('/', (req, res) => {
+app.use('/abc', (req, res) => {
   res.send('Hello world');
 });
 
