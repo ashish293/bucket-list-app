@@ -10,4 +10,5 @@ An application to manage your bucket list.
 mkdir server
 cd server
 npm init -y
+npm i nodemon express mongoose mongodb
 ```
