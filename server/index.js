@@ -1,5 +1,5 @@
 const express = require('express');
-const { db } = require('./database');
+const { db, BucketListItem } = require('./database');
 
 const PORT = 8888;
 const app = express();
@@ -17,8 +17,16 @@ db.on('open', (error) => {
     console.log('Successfully connected to MongoDb');
 });
 
-app.use('/abc', (req, res) => {
-    res.send('Hello world');
+app.use('/bucket-list/add', async (req, res) => {
+    // res.send('Hello world');
+    const item = await BucketListItem.create({
+        title: 'Go to japan',
+    });
+    res.status(200).json({
+        data: {
+            item,
+        },
+    });
 });
 
 mount(app);
